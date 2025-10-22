@@ -13,6 +13,7 @@ void test_init(void)
   assert(t->nil != NULL);
   assert(t->root == t->nil);
 #else
+  printf("else");
   assert(t->root == NULL);
 #endif
   delete_rbtree(t);
@@ -415,8 +416,11 @@ void test_find_erase_rand(const size_t n, const unsigned int seed)
 int main(void)
 {
   test_init();
+
   test_insert_single(1024);
+
   test_find_single(512, 1024);
+
   test_erase_root(128);
   test_find_erase_fixed();
   test_minmax_suite();
